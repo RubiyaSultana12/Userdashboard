@@ -11,9 +11,9 @@ Built with **React**, **Bootstrap**, and **Axios**, using **JSONPlaceholder** as
 - Display users in a table with **ID, First Name, Last Name, Email, Company**.  
 - **Add/Edit/Delete Users** with a single form component.  
 - **Client-side validation** (required fields, valid email).  
-- **Search and filter** by name, email, department.   
-- **Pagination or infinite scroll** for large datasets.  
-- **Responsive design** for mobile screens (stacked cards for <768px).  
+- **Search and filter** by name, email, company.   
+- **Pagination** for large datasets.  
+- **Responsive design** for all screens   
 - **Confirmation popups** for deleting users.  
 
 ---
@@ -30,8 +30,8 @@ Built with **React**, **Bootstrap**, and **Axios**, using **JSONPlaceholder** as
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/RubiyaSultana12/Expense-Tracker
-cd expense-tracker
+git clone https://github.com/RubiyaSultana12/Userdashboard
+cd Userdashboard
 ```
 
 2. Install dependencies:
