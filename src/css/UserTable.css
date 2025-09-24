@@ -1,0 +1,32 @@
+
+@media (min-width: 300px) and (max-width: 620px) {
+  table.table th,
+  table.table td {
+    font-size: 12px;   /* smaller text */
+    padding: 4px;      
+  }
+
+  
+  td .btn {
+    flex: 1 1 100%;        
+    font-size: 12px;
+    padding: 4px 6px;
+    margin-bottom: 4px;    /* spacing between buttons */
+  }
+
+  td {
+    word-break: break-word;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  table.table th,
+  table.table td {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+
+
+}
