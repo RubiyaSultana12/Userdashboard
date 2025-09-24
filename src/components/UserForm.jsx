@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import splitName from "../split/SplitName";
 
-function UserForm({ user, onSubmit }) {
+function UserForm({ user, onSubmit, onCancel, mode = "add" }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -91,13 +91,18 @@ function UserForm({ user, onSubmit }) {
         />
       </div>
 
-      {/* Add Details button */}
-      <button type="submit" className="btn btn-primary px-4 py-2 rounded mt-2">
-        Add User
-      </button>
-       <button type="submit" className="btn btn-danger px-4 py-2 rounded mt-2">
-        Cancel
-      </button>
+      <div className="d-flex gap-2 mt-3">
+        <button type="submit" className="btn btn-primary px-4 py-2 rounded">
+          {mode === "edit" ? "Update User" : "Add User"}
+        </button>
+        <button
+          type="button"
+          className="btn btn-danger px-4 py-2 rounded"
+          onClick={onCancel}
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   );
 }
