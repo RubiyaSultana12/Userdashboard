@@ -67,30 +67,43 @@ API Base URL: https://jsonplaceholder.typicode.com/users
 ##Challenges faced + improvements
 
 Edit/Update Not Reflecting in Table
+
 •	Initially, editing a user in the modal did not update the table immediately.
 •	Reason: The table component was not properly updating its state after a successful API update.
 •	Fixed by lifting the updated user state back to the parent component and re-rendering the table.
+
 Sorting Users
+
 •	Sorting by multiple fields (ID, First Name, Last Name, Email, Company) needed proper handling.
 •	Challenge: Maintaining sort state across re-renders and updating the table dynamically.
 •	Fixed by implementing sortConfig in state and sorting the filtered array before rendering.
+
 Pagination & Rows Per Page
+
 •	Initially, the table did not adjust based on “rows per page” selection.
 •	Challenge: Slicing the filtered user array correctly and keeping pagination in sync.
 •	Fixed by recalculating the visible rows every time itemsPerPage or currentPage changed.
 
 ##Improvements Made
+
 Sorting & Filtering
+
 •	Implemented column-wise sorting with arrows (▲▼) for user clarity.
 •	Combined search and filter logic with sorting to improve user experience.
+
 Responsive Design
+
 •	Added media queries for 768px screens.
 •	Buttons stack vertically on small screens.
 •	Table content wraps, preventing horizontal scrolling on mobile devices.
+
 Pagination
+
 •	Users can select rows per page (5, 10, 25, 50, 100).
 •	Table updates immediately when rows per page change.
+
 Reusable Components
+
 •	Created UserForm for add/edit operations.
 •	Created EditUserModal for modular edit functionality.
 •	Table, search, filter, pagination components are reusable.
