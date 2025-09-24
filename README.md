@@ -59,8 +59,10 @@ This will create a production-ready build in the `build` directory.
 API Base URL: https://jsonplaceholder.typicode.com/users
 
 ### Deployment
+
  vercel:https://userdashboard-zlev.vercel.app/
- github:
+ 
+ github: https://github.com/RubiyaSultana12/Userdashboard
 
 ##Challenges faced + improvements
 
