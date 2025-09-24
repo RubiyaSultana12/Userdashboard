@@ -29,12 +29,11 @@ function AddUserPage({ onAddUser }) {
         <Modal.Body>
           <UserForm
             onSubmit={handleSubmit}
-            onCancel={() => setShowModal(false)} // closes modal
+            onCancel={() => setShowModal(false)}
+            mode="add"
           />
         </Modal.Body>
-        
       </Modal>
-       
     </>
   );
 }
