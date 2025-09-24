@@ -20,7 +20,7 @@ Built with **React**, **Bootstrap**, and **Axios**, using **JSONPlaceholder** as
 
 ## Screenshots
 
-![Dashboard](user-management-dashboard/screenshot.png)
+![Dashboard](screenshot.png)
 
 
 ---
@@ -59,5 +59,5 @@ npm run build
 This will create a production-ready build in the `build` directory.
 
 ### Deployment
-
+ vercel:https://userdashboard-zlev.vercel.app/
 
