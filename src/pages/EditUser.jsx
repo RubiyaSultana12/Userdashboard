@@ -1,56 +1,48 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { getUsers, updateUser } from "../api/api";
+import { Modal } from "react-bootstrap";
 import UserForm from "../components/UserForm";
+import { updateUser } from "../api/api";
 
-
-function EditUserPage() {
-  const { id } = useParams(); // get user id from URL
-  const navigate = useNavigate();
-  const [user, setUser] = useState(null); // store user data
-  const [loading, setLoading] = useState(true);
+function EditUserModal({ user, show, onClose, onUserUpdated }) {
+  const [formData, setFormData] = useState(user);
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await getUsers(); // JSONPlaceholder returns all users
-        const foundUser = res.data.find((u) => u.id === parseInt(id));
-        if (foundUser) setUser(foundUser);
-        else alert("User not found");
-      } catch (err) {
-        console.error(err);
-        alert("Failed to fetch user");
-      } finally {
-        setLoading(false);
-      }
-    };
+    setFormData(user);
+  }, [user]);
 
-    fetchUser();
-  }, [id]);
-
-  const handleSubmit = async (updatedUser) => {
+  const handleSubmit = async (updatedUserData) => {
     try {
-      await updateUser(id, updatedUser);
+      const res = await updateUser(user.id, updatedUserData);
+      onUserUpdated(res.data); 
       alert("User updated successfully!");
-      navigate("/users");
+      onClose();
     } catch (err) {
       console.error(err);
       alert("Failed to update user");
     }
   };
 
-  if (loading) return <p>Loading user data...</p>;
-  if (!user) return <p>User not found</p>;
+  if (!show) return null;
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl mb-4">Edit User</h1>
-
-      <UserForm user={user} onSubmit={handleSubmit} onCancel={() => navigate("/users")}  />
-
-      
-    </div>
+    <Modal show={show} onHide={onClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Edit User</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {user ? (
+          <UserForm
+            user={formData} // 
+            onSubmit={handleSubmit}
+            onCancel={onClose}
+            mode="edit"
+          />
+        ) : (
+          <p>User not found</p>
+        )}
+      </Modal.Body>
+    </Modal>
   );
 }
 
-export default EditUserPage;
+export default EditUserModal;
